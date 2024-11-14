@@ -2,6 +2,7 @@
 /* 1st A file witch is locked or you wanna lock. */
 /* 2nd The new name for the file. */
 /* 3rd the password! */
+
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>

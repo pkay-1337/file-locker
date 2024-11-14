@@ -1,3 +1,7 @@
+/* This program needs 3 arguments! */
+/* 1st A file witch is locked or you wanna lock. */
+/* 2nd The new name for the file. */
+/* 3rd the password! */
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -38,18 +42,12 @@ int main(int argc, char *argv[]){
 
   while(filesize > 0){
     int x = read(fd, &buf, 4096);
-    /* for(int i=0; i < 20; i++){ */
-    /*   printf("%d = %d\n", i, i%8); */
-    /* } */
-    printf("read %d bytes\n", x);
-
     for(int i=0; i < x; i++){
       buf[i] = buf[i] ^ (i%8);
     }
-
     write(nfd, &buf, x);
-
     filesize = filesize - x;
   }
+  assert(unlink(argv[1]) == 0);
   return 0;
 }

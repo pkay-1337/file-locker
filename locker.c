@@ -44,7 +44,7 @@ int main(int argc, char *argv[]){
   while(filesize > 0){
     int x = read(fd, &buf, 4096);
     for(int i=0; i < x; i++){
-      buf[i] = buf[i] ^ (i%8);
+      buf[i] = buf[i] ^ password[i%8];
     }
     write(nfd, &buf, x);
     filesize = filesize - x;

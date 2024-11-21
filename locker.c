@@ -49,6 +49,6 @@ int main(int argc, char *argv[]){
     write(nfd, &buf, x);
     filesize = filesize - x;
   }
-  /* assert(unlink(argv[1]) == 0); */
+  assert(unlink(argv[1]) == 0);
   return 0;
 }
